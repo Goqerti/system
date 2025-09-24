@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Müştərilər</title>
+    <link rel="stylesheet" href="/public/common.css" />
+</head>
+<body>
+    <main class="container">
+        <div class="card">
+            <h2>Müştəri əlavə et</h2>
+            <form id="customer-form" enctype="multipart/form-data">
+                <div class="row">
+                    <div><label>Ad</label><input id="cFirst" name="firstName" required /></div>
+                    <div><label>Soyad</label><input id="cLast" name="lastName" required /></div>
+                </div>
+                <div class="row">
+                    <div><label>Telefon</label><input id="cPhone" name="phone" required /></div>
+                    <div><label>Email</label><input id="cEmail" name="email" /></div>
+                </div>
+                <div>
+                    <label>Şəxsiyyət vəsiqəsi (şəkil/pdf)</label>
+                    <input id="cIdCard" name="idCard" type="file" accept="image/*,.pdf" />
+                </div>
+                <button class="btn btn-primary" type="submit" style="margin-top: 10px;">Yadda saxla</button>
+            </form>
+        </div>
+
+        <div class="card" style="margin-top: 28px;">
+            <h2>Müştəri Siyahısı</h2>
+            <table class="table" id="customersTbl">
+                <thead>
+                    <tr>
+                        <th>Ad Soyad</th>
+                        <th>Telefon</th>
+                        <th>Email</th>
+                        <th>Sənəd</th>
+                        <th>Əməliyyat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    </tbody>
+            </table>
+        </div>
+    </main>
+
+    <div class="modal" id="custModal">
+        <div class="sheet">
+            <h3>Müştərini redaktə et</h3>
+            <form id="edit-customer-form">
+                <div class="row">
+                    <div><label>Ad</label><input id="eFirst" name="firstName" required /></div>
+                    <div><label>Soyad</label><input id="eLast" name="lastName" required /></div>
+                </div>
+                <div class="row">
+                    <div><label>Telefon</label><input id="ePhone" name="phone" required /></div>
+                    <div><label>Email</label><input id="eEmail" name="email" /></div>
+                </div>
+                <div>
+                    <label>Yeni Şəxsiyyət vəsiqəsi (dəyişmirsə boş buraxın)</label>
+                    <input id="eIdCard" name="idCard" type="file" accept="image/*,.pdf" />
+                </div>
+                <div class="divider"></div>
+                <div style="display:flex;gap:8px;justify-content:flex-end">
+                    <button class="btn" type="button" id="eClose">Bağla</button>
+                    <button class="btn btn-success" type="submit">Yadda saxla</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/public/nav.js"></script>
+    <script src="/public/customers.js"></script>
+</body>
+</html>

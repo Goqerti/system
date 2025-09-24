@@ -1,0 +1,42 @@
+[
+  {
+    "id": "ffP22T7Qlq4a",
+    "firstName": "Sirvan",
+    "lastName": "Dursunalıyev",
+    "phone": "0505636801",
+    "email": "admin@saidrentacar.com",
+    "idCardPath": "BQACAgIAAyEGAAS-IoX9AAMNaNO4Jdgovdk4VliHdVPUmgnrZUYAAmd3AAJnZJlKmDGHnFB7iuY2BA",
+    "createdAt": "2025-09-24T08:39:21.673Z",
+    "updatedAt": "2025-09-24T09:21:41.467Z"
+  },
+  {
+    "id": "hNWHQl3xfbn7",
+    "firstName": "Farid",
+    "lastName": "Dursunalıyev",
+    "phone": "0505636801",
+    "email": "faridsirvanli5@gmail.com",
+    "idCardPath": "BQACAgIAAyEGAAS-IoX9AAMLaNOyG9op7Flx4yG9JsHyuq4qhQ4AAiN3AAJnZJlKMj8hnNN4P-U2BA",
+    "createdAt": "2025-09-24T08:55:25.781Z",
+    "updatedAt": "2025-09-24T08:55:55.170Z"
+  },
+  {
+    "id": "8iG4hJBOZfOS",
+    "firstName": "Farid",
+    "lastName": "Dursunalıyev",
+    "phone": "0505636801",
+    "email": "faridsirvanli5@gmail.com",
+    "idCardPath": "BQACAgIAAyEGAAS-IoX9AAMMaNO06AseBrJsB8n7BZGD_WFzy2MAAkx3AAJnZJlKfeMmV9Whh182BA",
+    "createdAt": "2025-09-24T09:07:52.242Z",
+    "updatedAt": "2025-09-24T09:07:52.242Z"
+  },
+  {
+    "id": "sXrlwzZog6us",
+    "firstName": "as",
+    "lastName": "Dursunalıyev",
+    "phone": "0505636801",
+    "email": "faridsirvanli5@gmail.com",
+    "idCardPath": null,
+    "createdAt": "2025-09-24T09:13:48.855Z",
+    "updatedAt": "2025-09-24T09:13:48.855Z"
+  }
+]
