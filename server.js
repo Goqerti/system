@@ -113,7 +113,7 @@ for (const p of [carsPath, customersPath, reservationsPath, expensesPath, adminE
   if (!fs.existsSync(p)) fs.writeFileSync(p, '[]', 'utf8');
 }
 
-// ----- One-time migration: split legacy expenses.json into separate files -----
+// ----- One-time migration -----
 try {
   const legacy = readJsonSafe(expensesPath);
   const adminOld = readJsonSafe(adminExpensesPath);
@@ -186,12 +186,22 @@ app.post('/api/auth/login', (req, res) => {
   res.json({ token, user: { id: user.id, email: user.email, role: user.role } });
 });
 
-// ----- Cars CRUD -----
+// ----- [YENİLƏNMİŞ] Cars CRUD -----
 app.get('/api/cars', (req, res)=> res.json(readJsonSafe(carsPath)));
 app.post('/api/cars', (req, res)=> {
   const list = readJsonSafe(carsPath);
   const now = new Date().toISOString();
-  const car = { id: nanoid(12), ...req.body, createdAt: now, updatedAt: now };
+  const carData = req.body;
+  // Status göndərilməyibsə, avtomatik 'FREE' təyin et
+  if (!carData.status) {
+    carData.status = 'FREE';
+  }
+  const car = { 
+    id: nanoid(12), 
+    ...carData, 
+    createdAt: now, 
+    updatedAt: now 
+  };
   list.push(car);
   writeJsonSafe(carsPath, list);
   res.status(201).json(car);
@@ -439,7 +449,7 @@ app.get('/api/search', (req, res)=> {
 
 // ===== Admin Expenses (no carId) =====
 app.get('/api/admin-expenses', (req, res)=> {
-  const month = String(req.query.month || '').trim(); // YYYY-MM
+  const month = String(req.query.month || '').trim();
   const list = readJsonSafe(adminExpensesPath);
   let start = dayjs.tz().startOf('month'); let end = dayjs.tz().endOf('month');
   if (/^\d{4}-\d{2}$/.test(month)) {
@@ -495,7 +505,7 @@ app.delete('/api/admin-expenses/:id', (req, res)=> {
 
 // ===== Car Expenses (requires carId) =====
 app.get('/api/car-expenses', (req, res)=> {
-  const month = String(req.query.month || '').trim(); // YYYY-MM
+  const month = String(req.query.month || '').trim();
   const carId = String(req.query.carId || '').trim();
   const list = readJsonSafe(carExpensesPath);
   let start = dayjs.tz().startOf('month'); let end = dayjs.tz().endOf('month');
